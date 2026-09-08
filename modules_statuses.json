@@ -1,0 +1,12 @@
+{
+    "Auth": true,
+    "Dashboard": true,
+    "Appointments": true,
+    "Patients": true,
+    "Doctors": true,
+    "Billing": true,
+    "CMS": true,
+    "Settings": true,
+    "Api": true,
+    "Website": true
+}
