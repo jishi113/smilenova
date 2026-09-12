@@ -52,12 +52,16 @@ class PatientController extends Controller
             ->with('success', "Patient {$patient->full_name} registered. Code: {$patient->patient_code}");
     }
 
-    public function show(Patient $patient)
-{
-    $upcomingAppts = collect();
+        public function show(Patient $patient)
+    {
+        $patient->load(['appointments.doctor.user', 'treatments.doctor', 'invoices']);
+        $upcomingAppts = $patient->appointments()
+            ->where('status', 'confirmed')
+            ->where('appointment_date', '>=', today())
+            ->with('doctor.user')->get();
 
-    return view('patients::show', compact('patient', 'upcomingAppts'));
-}
+        return view('patients::show', compact('patient', 'upcomingAppts'));
+    }
 
     public function edit(Patient $patient)
     {

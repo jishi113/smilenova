@@ -14,6 +14,7 @@ class Doctor extends Model
     public function user() { return $this->belongsTo(\App\Models\User::class); }
     public function specialisation() { return $this->belongsTo(Specialisation::class); }
     public function schedules() { return $this->hasMany(DoctorSchedule::class); }
+    public function appointments() { return $this->hasMany(\Modules\Appointments\Models\Appointment::class); }
 
     public function getFullNameAttribute(): string
     {
@@ -29,12 +30,19 @@ class Doctor extends Model
         $current = \Carbon\Carbon::parse($date->toDateString() . ' ' . $schedule->start_time);
         $end = \Carbon\Carbon::parse($date->toDateString() . ' ' . $schedule->end_time);
 
+        $booked = \Modules\Appointments\Models\Appointment::where('doctor_id', $this->id)
+            ->where('appointment_date', $date->toDateString())
+            ->whereNotIn('status', ['cancelled', 'no_show'])
+            ->pluck('start_time')
+            ->map(fn($t) => substr($t, 0, 5))
+            ->toArray();
+
         while ($current->lt($end)) {
             $timeStr = $current->format('H:i');
             $slots[] = [
                 'time' => $timeStr,
                 'label' => $current->format('h:i A'),
-                'available' => true,
+                'available' => !in_array($timeStr, $booked),
             ];
             $current->addMinutes($schedule->slot_duration);
         }
