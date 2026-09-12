@@ -1,42 +1,35 @@
 <?php
 
-namespace Modules\CMS\Http\Controllers;
+use Illuminate\Support\Facades\Route;
+use Modules\CMS\Http\Controllers\PageController;
+use Modules\CMS\Http\Controllers\PostController;
+use Modules\CMS\Http\Controllers\TestimonialController;
+use Modules\CMS\Http\Controllers\GalleryController;
 
-use Modules\CMS\Models\Gallery;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+Route::middleware(['auth', 'verified', 'permission:cms.pages'])->group(function () {
+    Route::get('/cms/pages', [PageController::class, 'index'])->name('cms.pages.index');
+    Route::get('/cms/pages/create', [PageController::class, 'create'])->name('cms.pages.create');
+    Route::post('/cms/pages', [PageController::class, 'store'])->name('cms.pages.store');
+    Route::get('/cms/pages/{page}/edit', [PageController::class, 'edit'])->name('cms.pages.edit');
+    Route::put('/cms/pages/{page}', [PageController::class, 'update'])->name('cms.pages.update');
+    Route::delete('/cms/pages/{page}', [PageController::class, 'destroy'])->name('cms.pages.destroy');
+});
 
-class GalleryController extends Controller
-{
-    public function index()
-    {
-        $images = Gallery::orderBy('sort_order')->get();
-        return view('cms::gallery.index', compact('images'));
-    }
+Route::middleware(['auth', 'verified', 'permission:cms.posts'])->group(function () {
+    Route::get('/cms/posts', [PostController::class, 'index'])->name('cms.posts.index');
+    Route::get('/cms/posts/create', [PostController::class, 'create'])->name('cms.posts.create');
+    Route::post('/cms/posts', [PostController::class, 'store'])->name('cms.posts.store');
+    Route::patch('/cms/posts/{post}/toggle', [PostController::class, 'togglePublish'])->name('cms.posts.toggle');
+});
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'images' => ['required', 'array'],
-            'images.*' => ['image', 'max:2048'],
-            'category' => ['nullable', 'string'],
-        ]);
+Route::middleware(['auth', 'verified', 'permission:cms.testimonials'])->group(function () {
+    Route::get('/cms/testimonials', [TestimonialController::class, 'index'])->name('cms.testimonials.index');
+    Route::post('/cms/testimonials', [TestimonialController::class, 'store'])->name('cms.testimonials.store');
+    Route::delete('/cms/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('cms.testimonials.destroy');
+});
 
-        foreach ($request->file('images') as $file) {
-            $path = $file->store('gallery', 'public');
-            Gallery::create([
-                'image_path' => $path,
-                'category' => $request->category ?: 'clinic',
-                'is_published' => true,
-            ]);
-        }
-
-        return back()->with('success', 'Images uploaded.');
-    }
-
-    public function destroy(Gallery $gallery)
-    {
-        $gallery->delete();
-        return back()->with('success', 'Image removed.');
-    }
-}
+Route::middleware(['auth', 'verified', 'permission:cms.gallery'])->group(function () {
+    Route::get('/cms/gallery', [GalleryController::class, 'index'])->name('cms.gallery.index');
+    Route::post('/cms/gallery', [GalleryController::class, 'store'])->name('cms.gallery.store');
+    Route::delete('/cms/gallery/{gallery}', [GalleryController::class, 'destroy'])->name('cms.gallery.destroy');
+});
