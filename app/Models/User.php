@@ -20,10 +20,14 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    'name',
+    'email',
+    'password',
+    'phone',
+    'avatar',
+    'is_active',
+    'last_login',
+];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,12 +45,14 @@ class User extends Authenticatable
      * @return array<string, string>
      */
     protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+{
+    return [
+        'email_verified_at' => 'datetime',
+        'last_login' => 'datetime',
+        'is_active' => 'boolean',
+        'password' => 'hashed',
+    ];
+}
         public function doctor()
     {
         return $this->hasOne(\Modules\Doctors\Models\Doctor::class);

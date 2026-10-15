@@ -164,6 +164,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
             'Modules\\Api\\Database\\Seeders\\' => 29,
             'Modules\\Api\\Database\\Factories\\' => 31,
             'Modules\\Api\\' => 12,
+            'Modules\\' => 8,
             'Mockery\\' => 8,
         ),
         'L' =>
@@ -458,7 +459,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Website\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Website/app',
+            0 => __DIR__ . '/../..' . '/Modules/Website',
         ),
         'Modules\\Settings\\Tests\\' =>
         array (
@@ -474,7 +475,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Settings\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Settings/app',
+            0 => __DIR__ . '/../..' . '/Modules/Settings',
         ),
         'Modules\\Patients\\Tests\\' =>
         array (
@@ -490,7 +491,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Patients\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Patients/app',
+            0 => __DIR__ . '/../..' . '/Modules/Patients',
         ),
         'Modules\\Doctors\\Tests\\' =>
         array (
@@ -506,7 +507,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Doctors\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Doctors/app',
+            0 => __DIR__ . '/../..' . '/Modules/Doctors',
         ),
         'Modules\\Dashboard\\Tests\\' =>
         array (
@@ -522,7 +523,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Dashboard\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Dashboard/app',
+            0 => __DIR__ . '/../..' . '/Modules/Dashboard',
         ),
         'Modules\\CMS\\Tests\\' =>
         array (
@@ -538,7 +539,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\CMS\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/CMS/app',
+            0 => __DIR__ . '/../..' . '/Modules/CMS',
         ),
         'Modules\\Billing\\Tests\\' =>
         array (
@@ -554,7 +555,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Billing\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Billing/app',
+            0 => __DIR__ . '/../..' . '/Modules/Billing',
         ),
         'Modules\\Auth\\Tests\\' =>
         array (
@@ -570,7 +571,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Auth\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Auth/app',
+            0 => __DIR__ . '/../..' . '/Modules/Auth',
         ),
         'Modules\\Appointments\\Tests\\' =>
         array (
@@ -586,7 +587,7 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Appointments\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Appointments/app',
+            0 => __DIR__ . '/../..' . '/Modules/Appointments',
         ),
         'Modules\\Api\\Tests\\' =>
         array (
@@ -602,7 +603,11 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         ),
         'Modules\\Api\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/Modules/Api/app',
+            0 => __DIR__ . '/../..' . '/Modules/Api',
+        ),
+        'Modules\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/Modules',
         ),
         'Mockery\\' =>
         array (
@@ -3919,76 +3924,55 @@ class ComposerStaticInit07dfb11e537e2ea37c240faf55f03789
         'Mockery\\VerificationDirector' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationDirector.php',
         'Mockery\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
         'Modules\\Api\\Database\\Seeders\\ApiDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Api/database/seeders/ApiDatabaseSeeder.php',
-        'Modules\\Api\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/Modules/Api/app/Http/Controllers/ApiController.php',
-        'Modules\\Api\\Providers\\ApiServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/app/Providers/ApiServiceProvider.php',
-        'Modules\\Api\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/app/Providers/EventServiceProvider.php',
-        'Modules\\Api\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/app/Providers/RouteServiceProvider.php',
+        'Modules\\Api\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/Modules/Api/Http/Controllers/ApiController.php',
+        'Modules\\Api\\Providers\\ApiServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/Providers/ApiServiceProvider.php',
+        'Modules\\Api\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/Providers/EventServiceProvider.php',
+        'Modules\\Api\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Api/Providers/RouteServiceProvider.php',
         'Modules\\Appointments\\Database\\Seeders\\AppointmentsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Appointments/database/seeders/AppointmentsDatabaseSeeder.php',
-        'Modules\\Appointments\\Http\\Controllers\\AppointmentController' => __DIR__ . '/../..' . '/Modules/Appointments/app/Http/Controllers/AppointmentController.php',
-        'Modules\\Appointments\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/Modules/Appointments/app/Http/Controllers/CalendarController.php',
-        'Modules\\Appointments\\Models\\Appointment' => __DIR__ . '/../..' . '/Modules/Appointments/app/Models/Appointment.php',
-        'Modules\\Appointments\\Models\\TreatmentRecord' => __DIR__ . '/../..' . '/Modules/Appointments/app/Models/TreatmentRecord.php',
-        'Modules\\Appointments\\Providers\\AppointmentsServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/app/Providers/AppointmentsServiceProvider.php',
-        'Modules\\Appointments\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/app/Providers/EventServiceProvider.php',
-        'Modules\\Appointments\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/app/Providers/RouteServiceProvider.php',
+        'Modules\\Appointments\\Http\\Controllers\\AppointmentsController' => __DIR__ . '/../..' . '/Modules/Appointments/Http/Controllers/AppointmentsController.php',
+        'Modules\\Appointments\\Providers\\AppointmentsServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/Providers/AppointmentsServiceProvider.php',
+        'Modules\\Appointments\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/Providers/EventServiceProvider.php',
+        'Modules\\Appointments\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Appointments/Providers/RouteServiceProvider.php',
         'Modules\\Auth\\Database\\Seeders\\AuthDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Auth/database/seeders/AuthDatabaseSeeder.php',
-        'Modules\\Auth\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/Modules/Auth/app/Http/Controllers/AuthController.php',
-        'Modules\\Auth\\Http\\Middleware\\CheckPermission' => __DIR__ . '/../..' . '/Modules/Auth/app/Http/Middleware/CheckPermission.php',
-        'Modules\\Auth\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/app/Providers/AuthServiceProvider.php',
-        'Modules\\Auth\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/app/Providers/EventServiceProvider.php',
-        'Modules\\Auth\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/app/Providers/RouteServiceProvider.php',
+        'Modules\\Auth\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/Modules/Auth/Http/Controllers/AuthController.php',
+        'Modules\\Auth\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/Providers/AuthServiceProvider.php',
+        'Modules\\Auth\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/Providers/EventServiceProvider.php',
+        'Modules\\Auth\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Auth/Providers/RouteServiceProvider.php',
         'Modules\\Billing\\Database\\Seeders\\BillingDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Billing/database/seeders/BillingDatabaseSeeder.php',
-        'Modules\\Billing\\Http\\Controllers\\InvoiceController' => __DIR__ . '/../..' . '/Modules/Billing/app/Http/Controllers/InvoiceController.php',
-        'Modules\\Billing\\Http\\Controllers\\ReportController' => __DIR__ . '/../..' . '/Modules/Billing/app/Http/Controllers/ReportController.php',
-        'Modules\\Billing\\Models\\Invoice' => __DIR__ . '/../..' . '/Modules/Billing/app/Models/Invoice.php',
-        'Modules\\Billing\\Models\\InvoiceItem' => __DIR__ . '/../..' . '/Modules/Billing/app/Models/InvoiceItem.php',
-        'Modules\\Billing\\Models\\Payment' => __DIR__ . '/../..' . '/Modules/Billing/app/Models/Payment.php',
-        'Modules\\Billing\\Providers\\BillingServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/app/Providers/BillingServiceProvider.php',
-        'Modules\\Billing\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/app/Providers/EventServiceProvider.php',
-        'Modules\\Billing\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/app/Providers/RouteServiceProvider.php',
+        'Modules\\Billing\\Http\\Controllers\\BillingController' => __DIR__ . '/../..' . '/Modules/Billing/Http/Controllers/BillingController.php',
+        'Modules\\Billing\\Providers\\BillingServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/Providers/BillingServiceProvider.php',
+        'Modules\\Billing\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/Providers/EventServiceProvider.php',
+        'Modules\\Billing\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Billing/Providers/RouteServiceProvider.php',
         'Modules\\CMS\\Database\\Seeders\\CMSDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/CMS/database/seeders/CMSDatabaseSeeder.php',
-        'Modules\\CMS\\Http\\Controllers\\GalleryController' => __DIR__ . '/../..' . '/Modules/CMS/app/Http/Controllers/GalleryController.php',
-        'Modules\\CMS\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/Modules/CMS/app/Http/Controllers/PageController.php',
-        'Modules\\CMS\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/Modules/CMS/app/Http/Controllers/PostController.php',
-        'Modules\\CMS\\Http\\Controllers\\TestimonialController' => __DIR__ . '/../..' . '/Modules/CMS/app/Http/Controllers/TestimonialController.php',
-        'Modules\\CMS\\Models\\Gallery' => __DIR__ . '/../..' . '/Modules/CMS/app/Models/Gallery.php',
-        'Modules\\CMS\\Models\\Page' => __DIR__ . '/../..' . '/Modules/CMS/app/Models/Page.php',
-        'Modules\\CMS\\Models\\Post' => __DIR__ . '/../..' . '/Modules/CMS/app/Models/Post.php',
-        'Modules\\CMS\\Models\\Testimonial' => __DIR__ . '/../..' . '/Modules/CMS/app/Models/Testimonial.php',
-        'Modules\\CMS\\Providers\\CMSServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/app/Providers/CMSServiceProvider.php',
-        'Modules\\CMS\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/app/Providers/EventServiceProvider.php',
-        'Modules\\CMS\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/app/Providers/RouteServiceProvider.php',
+        'Modules\\CMS\\Http\\Controllers\\CMSController' => __DIR__ . '/../..' . '/Modules/CMS/Http/Controllers/CMSController.php',
+        'Modules\\CMS\\Providers\\CMSServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/Providers/CMSServiceProvider.php',
+        'Modules\\CMS\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/Providers/EventServiceProvider.php',
+        'Modules\\CMS\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/CMS/Providers/RouteServiceProvider.php',
         'Modules\\Dashboard\\Database\\Seeders\\DashboardDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Dashboard/database/seeders/DashboardDatabaseSeeder.php',
-        'Modules\\Dashboard\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/Modules/Dashboard/app/Http/Controllers/DashboardController.php',
-        'Modules\\Dashboard\\Providers\\DashboardServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/app/Providers/DashboardServiceProvider.php',
-        'Modules\\Dashboard\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/app/Providers/EventServiceProvider.php',
-        'Modules\\Dashboard\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/app/Providers/RouteServiceProvider.php',
+        'Modules\\Dashboard\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/Modules/Dashboard/Http/Controllers/DashboardController.php',
+        'Modules\\Dashboard\\Providers\\DashboardServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/Providers/DashboardServiceProvider.php',
+        'Modules\\Dashboard\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/Providers/EventServiceProvider.php',
+        'Modules\\Dashboard\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Dashboard/Providers/RouteServiceProvider.php',
         'Modules\\Doctors\\Database\\Seeders\\DoctorsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Doctors/database/seeders/DoctorsDatabaseSeeder.php',
-        'Modules\\Doctors\\Http\\Controllers\\DoctorController' => __DIR__ . '/../..' . '/Modules/Doctors/app/Http/Controllers/DoctorController.php',
-        'Modules\\Doctors\\Http\\Controllers\\ScheduleController' => __DIR__ . '/../..' . '/Modules/Doctors/app/Http/Controllers/ScheduleController.php',
-        'Modules\\Doctors\\Models\\Doctor' => __DIR__ . '/../..' . '/Modules/Doctors/app/Models/Doctor.php',
-        'Modules\\Doctors\\Models\\DoctorSchedule' => __DIR__ . '/../..' . '/Modules/Doctors/app/Models/DoctorSchedule.php',
-        'Modules\\Doctors\\Models\\Specialisation' => __DIR__ . '/../..' . '/Modules/Doctors/app/Models/Specialisation.php',
-        'Modules\\Doctors\\Providers\\DoctorsServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/app/Providers/DoctorsServiceProvider.php',
-        'Modules\\Doctors\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/app/Providers/EventServiceProvider.php',
-        'Modules\\Doctors\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/app/Providers/RouteServiceProvider.php',
+        'Modules\\Doctors\\Http\\Controllers\\DoctorsController' => __DIR__ . '/../..' . '/Modules/Doctors/Http/Controllers/DoctorsController.php',
+        'Modules\\Doctors\\Providers\\DoctorsServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/Providers/DoctorsServiceProvider.php',
+        'Modules\\Doctors\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/Providers/EventServiceProvider.php',
+        'Modules\\Doctors\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Doctors/Providers/RouteServiceProvider.php',
         'Modules\\Patients\\Database\\Seeders\\PatientsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Patients/database/seeders/PatientsDatabaseSeeder.php',
-        'Modules\\Patients\\Http\\Controllers\\PatientController' => __DIR__ . '/../..' . '/Modules/Patients/app/Http/Controllers/PatientController.php',
-        'Modules\\Patients\\Models\\Patient' => __DIR__ . '/../..' . '/Modules/Patients/app/Models/Patient.php',
-        'Modules\\Patients\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/app/Providers/EventServiceProvider.php',
-        'Modules\\Patients\\Providers\\PatientsServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/app/Providers/PatientsServiceProvider.php',
-        'Modules\\Patients\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/app/Providers/RouteServiceProvider.php',
+        'Modules\\Patients\\Http\\Controllers\\PatientsController' => __DIR__ . '/../..' . '/Modules/Patients/Http/Controllers/PatientsController.php',
+        'Modules\\Patients\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/Providers/EventServiceProvider.php',
+        'Modules\\Patients\\Providers\\PatientsServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/Providers/PatientsServiceProvider.php',
+        'Modules\\Patients\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Patients/Providers/RouteServiceProvider.php',
         'Modules\\Settings\\Database\\Seeders\\SettingsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Settings/database/seeders/SettingsDatabaseSeeder.php',
-        'Modules\\Settings\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/Modules/Settings/app/Http/Controllers/SettingsController.php',
-        'Modules\\Settings\\Models\\ClinicSetting' => __DIR__ . '/../..' . '/Modules/Settings/app/Models/ClinicSetting.php',
-        'Modules\\Settings\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/app/Providers/EventServiceProvider.php',
-        'Modules\\Settings\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/app/Providers/RouteServiceProvider.php',
-        'Modules\\Settings\\Providers\\SettingsServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/app/Providers/SettingsServiceProvider.php',
+        'Modules\\Settings\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/Modules/Settings/Http/Controllers/SettingsController.php',
+        'Modules\\Settings\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/Providers/EventServiceProvider.php',
+        'Modules\\Settings\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/Providers/RouteServiceProvider.php',
+        'Modules\\Settings\\Providers\\SettingsServiceProvider' => __DIR__ . '/../..' . '/Modules/Settings/Providers/SettingsServiceProvider.php',
         'Modules\\Website\\Database\\Seeders\\WebsiteDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Website/database/seeders/WebsiteDatabaseSeeder.php',
-        'Modules\\Website\\Http\\Controllers\\WebsiteController' => __DIR__ . '/../..' . '/Modules/Website/app/Http/Controllers/WebsiteController.php',
-        'Modules\\Website\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/app/Providers/EventServiceProvider.php',
-        'Modules\\Website\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/app/Providers/RouteServiceProvider.php',
-        'Modules\\Website\\Providers\\WebsiteServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/app/Providers/WebsiteServiceProvider.php',
+        'Modules\\Website\\Http\\Controllers\\WebsiteController' => __DIR__ . '/../..' . '/Modules/Website/Http/Controllers/WebsiteController.php',
+        'Modules\\Website\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/Providers/EventServiceProvider.php',
+        'Modules\\Website\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/Providers/RouteServiceProvider.php',
+        'Modules\\Website\\Providers\\WebsiteServiceProvider' => __DIR__ . '/../..' . '/Modules/Website/Providers/WebsiteServiceProvider.php',
         'Monolog\\Attribute\\AsMonologProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php',
         'Monolog\\Attribute\\WithMonologChannel' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
