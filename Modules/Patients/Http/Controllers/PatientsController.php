@@ -3,54 +3,106 @@
 namespace Modules\Patients\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Modules\Patients\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        return view('patients::index');
+        $patients = Patient::query()
+            ->when($request->search, function ($q) use ($request) {
+                $q->where(function ($q2) use ($request) {
+                    $q2->where('first_name', 'like', "%{$request->search}%")
+                       ->orWhere('last_name', 'like', "%{$request->search}%")
+                       ->orWhere('phone', 'like', "%{$request->search}%")
+                       ->orWhere('patient_code', 'like', "%{$request->search}%");
+                });
+            })
+            ->when($request->gender, function ($q) use ($request) {
+                $q->where('gender', $request->gender);
+            })
+            ->latest('registered_at')
+            ->paginate(15)
+            ->withQueryString();
+
+        return view('patients::index', compact('patients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('patients::create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
+    public function store(Request $request)
     {
-        return view('patients::show');
+        $validated = $request->validate([
+            'first_name' => ['required', 'string', 'max:50'],
+            'last_name' => ['required', 'string', 'max:50'],
+            'email' => ['nullable', 'email', 'max:150'],
+            'phone' => ['required', 'string', 'max:20'],
+            'date_of_birth' => ['nullable', 'date', 'before:today'],
+            'gender' => ['nullable', 'in:male,female,other'],
+            'blood_group' => ['nullable', 'string', 'max:5'],
+            'address' => ['nullable', 'string'],
+            'emergency_contact_name' => ['nullable', 'string', 'max:100'],
+            'emergency_contact_phone' => ['nullable', 'string', 'max:20'],
+            'allergies' => ['nullable', 'string'],
+            'notes' => ['nullable', 'string'],
+        ]);
+
+        $validated['patient_code'] = Patient::generateCode();
+        $validated['is_active'] = true;
+
+        $patient = Patient::create($validated);
+
+        return redirect()
+            ->route('admin.patients.show', $patient)
+            ->with('success', "Patient {$patient->full_name} registered. Code: {$patient->patient_code}");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function show(Patient $patient)
     {
-        return view('patients::edit');
+        $patient->load(['appointments.doctor.user']);
+
+        return view('patients::show', compact('patient'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
+    public function edit(Patient $patient)
+    {
+        return view('patients::edit', compact('patient'));
+    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
+    public function update(Request $request, Patient $patient)
+    {
+        $validated = $request->validate([
+            'first_name' => ['required', 'string', 'max:50'],
+            'last_name' => ['required', 'string', 'max:50'],
+            'email' => ['nullable', 'email', 'max:150'],
+            'phone' => ['required', 'string', 'max:20'],
+            'date_of_birth' => ['nullable', 'date', 'before:today'],
+            'gender' => ['nullable', 'in:male,female,other'],
+            'blood_group' => ['nullable', 'string', 'max:5'],
+            'address' => ['nullable', 'string'],
+            'emergency_contact_name' => ['nullable', 'string', 'max:100'],
+            'emergency_contact_phone' => ['nullable', 'string', 'max:20'],
+            'allergies' => ['nullable', 'string'],
+            'notes' => ['nullable', 'string'],
+        ]);
+
+        $patient->update($validated);
+
+        return redirect()
+            ->route('admin.patients.show', $patient)
+            ->with('success', 'Patient updated successfully.');
+    }
+
+    public function destroy(Patient $patient)
+    {
+        $patient->delete();
+
+        return redirect()
+            ->route('admin.patients.index')
+            ->with('success', 'Patient deleted successfully.');
+    }
 }

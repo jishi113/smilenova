@@ -3,54 +3,14 @@
 namespace Modules\Doctors\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DoctorsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('doctors::index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('doctors::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('doctors::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('doctors::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
+    public function index()    { return view('doctors::coming-soon', ['title' => 'Doctors']); }
+    public function create()   { return view('doctors::coming-soon', ['title' => 'Create Doctor']); }
+    public function store()    { return back(); }
+    public function show($id)  { return view('doctors::coming-soon', ['title' => 'Doctor Detail']); }
+    public function edit($id)  { return view('doctors::coming-soon', ['title' => 'Edit Doctor']); }
+    public function update($id){ return back(); }
+    public function destroy($id){ return back(); }
 }

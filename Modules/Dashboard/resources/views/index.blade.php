@@ -58,50 +58,26 @@
         </div>
     </div>
 
-    {{-- Access Info + Quick Actions --}}
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="card">
-            <h3 class="font-semibold text-slate-800 mb-4">Your Access</h3>
-            <div class="space-y-3">
-                <div>
-                    <p class="text-xs font-medium text-slate-500 uppercase mb-2">Roles</p>
-                    <div class="flex flex-wrap gap-2">
-                        @foreach($user->getRoleNames() as $role)
-                            <span class="badge badge-purple">{{ $role }}</span>
-                        @endforeach
-                    </div>
-                </div>
-                <div>
-                    <p class="text-xs font-medium text-slate-500 uppercase mb-2">Permissions ({{ $user->getAllPermissions()->count() }})</p>
-                    <div class="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto">
-                        @foreach($user->getAllPermissions() as $permission)
-                            <span class="badge badge-gray">{{ $permission->name }}</span>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3 class="font-semibold text-slate-800 mb-4">Quick Actions</h3>
-            <div class="grid grid-cols-2 gap-3">
-                <a href="#" class="btn btn-primary justify-start">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    Book Appointment
-                </a>
-                <a href="#" class="btn btn-secondary justify-start">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
-                    Add Patient
-                </a>
-                <a href="#" class="btn btn-secondary justify-start">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-                    View Calendar
-                </a>
-                <a href="#" class="btn btn-secondary justify-start">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    Reports
-                </a>
-            </div>
+    {{-- Quick Actions --}}
+    <div class="card">
+        <h3 class="font-semibold text-slate-800 mb-4">Quick Actions</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="#" class="btn btn-primary justify-start">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Book Appointment
+            </a>
+            <a href="#" class="btn btn-secondary justify-start">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                Add Patient
+            </a>
+            <a href="#" class="btn btn-secondary justify-start">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                View Calendar
+            </a>
+            <a href="#" class="btn btn-secondary justify-start">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Reports
+            </a>
         </div>
     </div>
 
