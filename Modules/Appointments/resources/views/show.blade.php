@@ -16,14 +16,21 @@
                 <p class="text-sm text-slate-500">ID: #{{ $appointment->id }}</p>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            @can('appointments.edit')
-                <a href="{{ route('admin.appointments.edit', $appointment) }}" class="btn btn-primary">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                    Edit
-                </a>
-            @endcan
-        </div>
+       <div class="flex items-center gap-2">
+    @can('appointments.edit')
+        <a href="{{ route('admin.appointments.edit', $appointment) }}" class="btn btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            Edit
+        </a>
+    @endcan
+
+    @can('appointments.delete')
+        <button onclick="document.getElementById('delete-modal').classList.remove('hidden')" class="btn btn-danger">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            Delete
+        </button>
+    @endcan
+</div>
     </div>
 
     {{-- Status Banner --}}
@@ -197,6 +204,43 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+{{-- Delete Confirmation Modal --}}
+<div id="delete-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen px-4">
+        <div class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm" onclick="document.getElementById('delete-modal').classList.add('hidden')"></div>
+
+        <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800">Delete Appointment?</h3>
+                    <p class="text-sm text-slate-500">This will permanently delete the appointment.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-lg p-3 mb-6">
+                <p class="text-sm font-medium text-slate-800">#{{ $appointment->id }} — {{ $appointment->patient->full_name ?? 'N/A' }}</p>
+                <p class="text-xs text-slate-500">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('M d, Y') }} at {{ \Carbon\Carbon::parse($appointment->start_time)->format('h:i A') }}</p>
+            </div>
+
+            <div class="flex items-center justify-end gap-3">
+                <button onclick="document.getElementById('delete-modal').classList.add('hidden')" class="btn btn-secondary">
+                    Cancel
+                </button>
+                <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST" class="inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                        Yes, Delete
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
