@@ -8,8 +8,6 @@
 <section class="relative bg-gradient-to-br from-primary-50 via-white to-primary-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-            {{-- Left --}}
             <div>
                 <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
                     <span class="w-2 h-2 rounded-full bg-primary-500"></span>
@@ -23,16 +21,15 @@
                     Modern dental care with advanced technology and a gentle touch. Book your appointment in seconds.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                    <a href="#" class="btn-primary text-base px-6 py-3">
+                    <a href="{{ route('login') }}" class="btn-primary text-base px-6 py-3">
                         Book Appointment
                     </a>
-                    <a href="#" class="btn-secondary text-base px-6 py-3">
+                    <a href="#services" class="btn-secondary text-base px-6 py-3">
                         Our Services
                     </a>
                 </div>
             </div>
 
-            {{-- Right: Hero Image --}}
             <div class="relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800"
@@ -78,7 +75,7 @@
 </section>
 
 {{-- SERVICES --}}
-<section class="py-20 bg-white">
+<section id="services" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
             <p class="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Our Services</p>
@@ -107,7 +104,7 @@
 </section>
 
 {{-- DOCTORS --}}
-<section class="py-20 bg-slate-50">
+<section id="doctors" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
             <p class="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Our Team</p>
@@ -121,7 +118,7 @@
                     <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">
                         {{ strtoupper(substr($doctor->user->name ?? 'D', 0, 1)) }}
                     </div>
-                    <h3 class="font-semibold text-slate-800">{{ $doctor->user->name ?? 'Doctor' }}</h3>
+                    <h3 class="font-semibold text-slate-800">Dr. {{ $doctor->user->name ?? 'Doctor' }}</h3>
                     <p class="text-xs text-primary-600 font-medium mt-1">{{ $doctor->specialisation->name ?? 'Dentist' }}</p>
                     <p class="text-xs text-slate-500 mt-3">{{ $doctor->experience_years }} years experience</p>
                 </div>
@@ -133,7 +130,7 @@
 </section>
 
 {{-- TESTIMONIALS --}}
-<section class="py-20 bg-white">
+<section id="testimonials" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
             <p class="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Testimonials</p>
@@ -164,7 +161,7 @@
         <div class="bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-10 lg:p-14 text-center text-white">
             <h2 class="text-3xl lg:text-4xl font-bold mb-4">Ready for Your Smile Makeover?</h2>
             <p class="text-primary-100 mb-8 max-w-2xl mx-auto">Book your appointment today and take the first step towards a healthier, brighter smile.</p>
-            <a href="#" class="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-6 py-3 rounded-lg hover:bg-primary-50 transition">
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-6 py-3 rounded-lg hover:bg-primary-50 transition">
                 Book Appointment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
