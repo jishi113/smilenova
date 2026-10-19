@@ -3,20 +3,33 @@
 namespace Modules\Billing\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\Billing\Database\Factories\InvoiceItemFactory;
 
 class InvoiceItem extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
+    protected $fillable = [
+        'invoice_id',
+        'service_id',
+        'description',
+        'quantity',
+        'unit_price',
+        'total',
+    ];
 
-    // protected static function newFactory(): InvoiceItemFactory
-    // {
-    //     // return InvoiceItemFactory::new();
-    // }
+    protected $casts = [
+        'quantity' => 'integer',
+        'unit_price' => 'decimal:2',
+        'total' => 'decimal:2',
+    ];
+
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

@@ -3,20 +3,27 @@
 namespace Modules\Billing\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\Billing\Database\Factories\PaymentFactory;
 
 class Payment extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
+    protected $fillable = [
+        'invoice_id',
+        'amount',
+        'payment_method',
+        'reference_no',
+        'received_by',
+        'notes',
+    ];
 
-    // protected static function newFactory(): PaymentFactory
-    // {
-    //     // return PaymentFactory::new();
-    // }
+    protected $casts = [
+        'amount' => 'decimal:2',
+        'paid_at' => 'datetime',
+    ];
+
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class);
+    }
 }
